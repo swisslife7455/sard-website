@@ -177,7 +177,7 @@ section.block{padding-block:clamp(48px,7vw,88px)}
 .wa .top{display:flex;align-items:center;gap:8px;background:#075E54;color:#fff;margin:-12px -12px 4px;padding:8px 12px;border-radius:14px 14px 0 0;font-size:13.2px}
 .wa p{background:#D9FDD3;border-radius:8px;padding:8px 10px;font-size:13.5px;align-self:flex-end;max-width:90%;color:#111}
 .err{color:#A3321D;font-size:13px}
-.hero{background:linear-gradient(90deg,rgba(14,59,58,.97) 30%,rgba(14,59,58,.6) 62%,rgba(14,59,58,.25)),url(img/lounge-lights.jpg) 70% 40%/cover}
+.hero{background:linear-gradient(90deg,rgba(14,59,58,.97) 30%,rgba(14,59,58,.6) 62%,rgba(14,59,58,.25)),url(img/hero-wide.jpg) 65% 55%/cover}
 @media (max-width:760px){.hero{background:linear-gradient(180deg,rgba(14,59,58,.55),rgba(14,59,58,.96) 55%),url(img/lounge-lights.jpg) center 30%/cover}}
 .valet{display:inline-flex;align-items:center;gap:8px;color:var(--butter);font-size:13.2px;font-weight:600}
 .valet i{font-style:normal;background:var(--night);border:1px solid var(--line-dark);border-radius:6px;padding:0 7px;font-family:var(--f-mono);font-size:12px}
