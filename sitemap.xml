@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://sardstudio971.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://sardstudio971.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sardstudio971.com/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sardstudio971.com/ar/"/></url>
+  <url><loc>https://sardstudio971.com/ar/</loc><changefreq>weekly</changefreq><priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sardstudio971.com/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sardstudio971.com/ar/"/></url>
   <url><loc>https://sardstudio971.com/terms.html</loc><priority>0.3</priority></url>
   <url><loc>https://sardstudio971.com/privacy.html</loc><priority>0.3</priority></url>
   <url><loc>https://sardstudio971.com/refunds.html</loc><priority>0.3</priority></url>

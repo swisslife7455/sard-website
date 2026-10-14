@@ -40,7 +40,7 @@ bkH:["Book your chair","احجز كرسيك"],st1:["Space","المساحة"],st2
 q1:["What would you like to book?","شو تبا تحجز؟"],oSe:["From AED 300 / hour","من 300 درهم / ساعة"],oSeD:["Studio, operator, raw files same day","استوديو ومشغّل وملفات خام بنفس اليوم"],oEpD:["Recording + full edit + 5 clips (opening offer)","تسجيل + مونتاج كامل + 5 مقاطع (عرض الافتتاح)"],oBig:["Series or Original?","سلسلة أو إنتاج خاص؟"],oBigD:["These start with a short call. See packages.","تبدأ بمكالمة قصيرة. شوف الباقات."],
 whichSpace:["Which space?","أي مساحة؟"],greenSm:["AED 400/h · 2h min","400 درهم/ساعة · ساعتين حد أدنى"],howLong:["How many hours?","كم ساعة؟"],longer:["Need more than 3 hours? Message us and we'll hold the day.","تحتاج أكثر من 3 ساعات؟ راسلنا ونحجز لك اليوم."],next:["Next","التالي"],back:["← Back","رجوع →"],
 q2:["Pick a time, add your details and pay","اختر الوقت، أضف بياناتك وادفع"],calWait:["Loading the studio calendar…","جاري تحميل تقويم الاستوديو…"],
-waBookP:["Online payment opens very soon. For now, send us your booking on WhatsApp and we'll confirm your time and send a secure payment link.","الدفع الإلكتروني قريباً. حالياً أرسل لنا حجزك على الواتساب، ونأكد الموعد ونرسل لك رابط دفع آمن."],waBookBtn:["Send booking on WhatsApp","أرسل الحجز على الواتساب"],
+waBookP:["Online payment opens very soon. For now, send us your booking on WhatsApp and we'll confirm your time and how to pay.","الدفع الإلكتروني قريباً. حالياً أرسل لنا حجزك على الواتساب، ونأكد لك الموعد وطريقة الدفع."],waBookBtn:["Send booking on WhatsApp","أرسل الحجز على الواتساب"],
 doneH:["You're on air.","أنت على الهوا."],doneP:["Your booking is confirmed and a confirmation email is on its way. Want subtitles, extra clips or a rush edit? Message us and we'll add them.","حجزك مؤكد ورسالة التأكيد في طريقها لبريدك. تبا ترجمة أو مقاطع إضافية أو مونتاج مستعجل؟ راسلنا ونضيفها لك."],doneWa:["Add extras on WhatsApp","أضف الإضافات على الواتساب"],
 sumH:["Your booking","حجزك"],sPkg:["Package","الباقة"],sTotal:["Total","المجموع"],sNote:["Includes 5% VAT. Free rescheduling up to 48 hours before.","شامل الضريبة 5%. تغيير الموعد مجاني قبل 48 ساعة."],
 fTerms:["Terms","الشروط"],fPrivacy:["Privacy","الخصوصية"],fRefunds:["Cancellations & refunds","الإلغاء والاسترجاع"],
@@ -49,16 +49,35 @@ ratesH:["Hourly rates by space","الأسعار بالساعة حسب المسا
 bf1:["Conversations and podcasts","الحوارات والبودكاست"],bf2:["Interviews and business content","المقابلات ومحتوى الأعمال"],bf3:["Bold, modern content","محتوى عصري وجريء"],bf4:["Ads, explainers, creative reels","الإعلانات والشروحات والريلز"],bf5:["Solo episodes, reels, voice-overs","الحلقات الفردية والريلز والتعليق الصوتي"],
 min1:["1 hour","ساعة"],min2:["1 hour","ساعة"],min3:["1 hour","ساعة"],min4:["2 hours","ساعتين"],min5:["1 hour","ساعة"],
 sp_majlis:["The Majlis Lounge","المجلس"],sp_desk:["The Desk","المكتب"],sp_glow:["The Glow Lounge","صالة الضوء"],sp_green:["The Green Screen","الشاشة الخضراء"],sp_solo:["The Solo Corner","الركن"],
+asH:["Book with confidence","احجز وأنت مرتاح"],
+as1h:["Free rescheduling","تغيير الموعد مجاناً"],as1p:["Move your session up to 48 hours before it starts.","غيّر موعدك قبل 48 ساعة من الجلسة."],
+as2h:["Full refund","استرجاع كامل"],as2p:["Cancel 48 hours or more before and get all your money back.","ألغِ قبل 48 ساعة أو أكثر واسترجع مبلغك كامل."],
+as3h:["You own your content","المحتوى ملكك"],as3p:["Every recording and edit we deliver is yours.","كل تسجيل ومونتاج نسلّمه لك هو ملكك."],
+as4h:["Clear prices","أسعار واضحة"],as4p:["Shown in AED with 5% VAT included. No hidden fees.","بالدرهم وشاملة ضريبة 5%، بدون رسوم مخفية."],
+kitH:["In every session","في كل جلسة"],kit1:["RØDE broadcast mics and boom arms","مايكات RØDE احترافية وأذرع تثبيت"],kit2:["RØDECaster sound mixer","ميكسر صوت RØDECaster"],kit3:["Godox FS200 soft lighting","إضاءة Godox FS200 ناعمة"],kit4:["Multi-camera video, 16:9 and 9:16","تصوير بعدة كاميرات، أفقي وعمودي"],
+mapHint:["Sard is in the same building as OUDCRAFT, 28B Street, Al Quoz. Free valet at the door.","سرد في نفس مبنى OUDCRAFT، شارع 28B، القوز. صف السيارات مجاني عند الباب."],
+pw:["Powered by Swissulife","بدعم من Swissulife"],
+fq6:["Where are you, and is there parking?","وين مكانكم، وفيه مواقف؟"],fa6:["28B Street, Al Quoz Industrial Area, Dubai, in the same building as OUDCRAFT. Valet parking at the door is free.","شارع 28B، منطقة القوز الصناعية، دبي، في نفس مبنى OUDCRAFT. وصف السيارات عند الباب مجاني."],
+waFloat:["Chat on WhatsApp","كلّمنا واتساب"],
+ckP:["We use cookies to see which ads bring visitors and to improve this site.","نستخدم ملفات تعريف الارتباط لنعرف أي إعلان جاب الزوار ولتحسين الموقع."],ckYes:["Accept","موافق"],ckNo:["Decline","رفض"],ckMore:["Privacy","الخصوصية"],
 pSession:["The Session","جلسة"],pEpisode:["The Episode","حلقة"],hrs:["hr","ساعة"],aed:["AED","درهم"]
 };
+if(!C.calUser){T.s1h=["Pick your space","اختر مساحتك"];T.s1p=["Choose a space and a time, send it to us on WhatsApp, and we confirm your slot.","اختر المساحة والوقت، وأرسلها لنا على الواتساب، ونأكد لك الموعد."];T.st2=["Date & details","الموعد والبيانات"];}
 if(C.valetFree){T.se4=["Free valet parking","صف سيارات مجاني"];T.v6=T.se4;T.valet=T.valetFree;}
-let L=0;
-try{const s=localStorage.getItem("sard-lang");if(s==="ar")L=1;else if(!s&&(navigator.language||"").startsWith("ar"))L=1;}catch(e){}
+const AR_PAGE=document.documentElement.hasAttribute("data-ar-page");
+const BASE=AR_PAGE?location.pathname.replace(/ar\/[^/]*$/,""):location.pathname.replace(/[^/]*$/,"");
+let L=AR_PAGE?1:0;
+if(!AR_PAGE){try{const s=localStorage.getItem("sard-lang");if(s==="ar"&&!/[?&]lang=en/.test(location.search)){location.replace(BASE+"ar/"+location.search+location.hash);}else if(!s&&(navigator.language||"").startsWith("ar"))L=1;}catch(e){}}
 const t=k=>(T[k]||[k,k])[L];
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const lang=o=>o?(L?o.ar:o.en):"";
 
-function waLink(text){return C.whatsapp?`https://wa.me/${C.whatsapp}?text=${encodeURIComponent(text)}`:"#contact";}
+// remember where a visitor came from (ad campaign, Instagram bio, etc.) so WhatsApp enquiries show it
+let REF="";
+try{const q=new URLSearchParams(location.search);const r=[q.get("utm_source"),q.get("utm_campaign")||q.get("ref")].filter(Boolean).join("-");
+  if(r)sessionStorage.setItem("sard-ref",r.slice(0,40));else if(q.get("fbclid"))sessionStorage.setItem("sard-ref",sessionStorage.getItem("sard-ref")||"meta");else if(q.get("gclid"))sessionStorage.setItem("sard-ref",sessionStorage.getItem("sard-ref")||"google");
+  REF=sessionStorage.getItem("sard-ref")||"";}catch(e){}
+function waLink(text){return C.whatsapp?`https://wa.me/${C.whatsapp}?text=${encodeURIComponent(text+(REF?`\n[ref: ${REF}]`:""))}`:"#contact";}
 const WA_TXT={
   hello:["Hi Sard, I'd like to ask about recording at the studio.","هلا سرد، عندي استفسار عن التسجيل في الاستوديو."],
   series:["Hi Sard, I'm interested in The Series package (4 episodes a month).","هلا سرد، مهتم بباقة السلسلة (4 حلقات شهرياً)."],
@@ -79,7 +98,10 @@ function applyLang(){
   $("#lang").textContent=L?"English":"العربية";
   applyConfig();render();
 }
-$("#lang").addEventListener("click",()=>{L=1-L;try{localStorage.setItem("sard-lang",L?"ar":"en")}catch(e){}applyLang();});
+$("#lang").addEventListener("click",()=>{const toAr=!L;try{localStorage.setItem("sard-lang",toAr?"ar":"en")}catch(e){}
+  if(AR_PAGE&&!toAr){location.href=BASE+location.search.replace(/([?&])lang=ar&?/,"$1")+location.hash;return;}
+  if(!AR_PAGE&&toAr){location.href=BASE+"ar/"+location.search+location.hash;return;}
+  L=toAr?1:0;applyLang();});
 
 // pages via #hash so links can be shared
 const PAGES=["home","packages","studio","contact","book"];
@@ -101,7 +123,7 @@ $$(".opt[data-pkg]").forEach(o=>o.addEventListener("click",()=>pick(o.dataset.pk
 $("#hMinus").addEventListener("click",()=>{S.hours=Math.max(S.space?SPACES[S.space].min:1,S.hours-1);render();});
 $("#hPlus").addEventListener("click",()=>{S.hours=Math.min(MAXH,S.hours+1);render();});
 function show(n){[1,2,3].forEach(i=>$("#s"+i).hidden=i!==n);$$("#stepper span").forEach((s,i)=>{s.className=i+1<n?"done":i+1===n?"on":"";});}
-$("#n1").addEventListener("click",()=>{show(2);loadBooking();});
+$("#n1").addEventListener("click",()=>{show(2);loadBooking();track("begin_checkout",{package:S.pkg,space:S.space,value:total(),currency:"AED"});});
 $$("[data-back]").forEach(b=>b.addEventListener("click",()=>show(+b.dataset.back)));
 
 function slug(){return S.pkg==="episode"?`episode-${S.space}`:`${S.space}-${S.hours}h`;}
@@ -130,6 +152,31 @@ function render(){
   $("#sumPkg").textContent=S.pkg?(S.pkg==="session"?`${t("pSession")} · ${S.hours} ${t("hrs")}`:t("pEpisode"))+(S.space?` · ${t("sp_"+S.space)}`:""):"—";
   $("#sumTotal").textContent=`${t("aed")} ${total().toLocaleString("en-US")}`;
 }
+// ---------- analytics: Meta Pixel + Google Analytics 4, loaded only after consent ----------
+const HAS_TRACK=!!(C.metaPixel||C.ga4);
+function loadTracking(){
+  if(window.__sardTrack)return;window.__sardTrack=1;
+  if(C.metaPixel){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init",C.metaPixel);fbq("track","PageView");}
+  if(C.ga4){const s=document.createElement("script");s.async=1;s.src="https://www.googletagmanager.com/gtag/js?id="+C.ga4;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag("js",new Date());gtag("config",C.ga4);}
+}
+function track(name,params){params=Object.assign({lang:L?"ar":"en",ref:REF||"direct"},params||{});
+  const fb={lead:"Contact",begin_checkout:"InitiateCheckout",view_item:"ViewContent"}[name];
+  try{if(window.fbq&&fb)fbq("track",fb,params);if(window.gtag)gtag("event",name,params);}catch(e){}}
+window.sardTrack=track;
+function consentUI(){
+  const bar=$("#consent");if(!bar||!HAS_TRACK)return;
+  let c=null;try{c=localStorage.getItem("sard-consent")}catch(e){}
+  if(c==="yes"){loadTracking();return;}if(c==="no")return;
+  bar.hidden=false;
+  $("#ckYes").onclick=()=>{try{localStorage.setItem("sard-consent","yes")}catch(e){}bar.hidden=true;loadTracking();};
+  $("#ckNo").onclick=()=>{try{localStorage.setItem("sard-consent","no")}catch(e){}bar.hidden=true;};
+}
+document.addEventListener("click",e=>{
+  const w=e.target.closest('a[href*="wa.me/"]');if(w)track("lead",{method:"whatsapp",where:w.dataset.wa||w.id||"link"});
+});
+// floating WhatsApp button appears once the visitor scrolls past the hero
+(function(){const f=$("#waFloat");if(!f)return;const onS=()=>f.classList.toggle("show",scrollY>420);addEventListener("scroll",onS,{passive:true});onS();})();
 applyLang();
 go(location.hash.slice(1)||"home",false);
+consentUI();
 })();

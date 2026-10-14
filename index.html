@@ -9,6 +9,11 @@
 <meta name="description" content="Sard (سرد) is a podcast and content studio in Dubai. Five recording spaces, multi-camera video, an operator in every session and valet parking. Book online from AED 300 an hour.">
 <meta name="theme-color" content="#0E3B3A">
 <link rel="canonical" href="https://sardstudio971.com/">
+<link rel="alternate" hreflang="en" href="https://sardstudio971.com/">
+<link rel="alternate" hreflang="ar" href="https://sardstudio971.com/ar/">
+<link rel="alternate" hreflang="x-default" href="https://sardstudio971.com/">
+<meta property="og:locale" content="en_AE">
+<meta property="og:locale:alternate" content="ar_AE">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sard · Podcast & Content Studio, Dubai">
 <meta property="og:description" content="Pull up a chair. You're on air. Five spaces, multi-camera, valet parking. Book online.">
@@ -31,11 +36,16 @@ window.SARD = {
   mapsUrl: "https://www.google.com/maps/place/OUDCRAFT/@25.1166783,55.2200037,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5f6b79da6e845f:0xbc6174357ef54df5!8m2!3d25.1166783!4d55.2200037",             // Google Maps share link
   hours: { en: "Daily · 9 AM – 11 PM", ar: "يومياً · 9 صباحاً – 11 مساءً" },
   valetFree: true,         // true = "Free valet parking"
-  instagram: "sard.studio.971"
+  instagram: "sard.studio.971",
+  metaPixel: "",           // Meta Pixel ID (digits) — paste to switch on ad tracking
+  ga4: ""                  // Google Analytics 4 ID, e.g. "G-XXXXXXX"
 };
 </script>
 
 <style>body{background:var(--paper)}</style>
+<!--FAQ-SCHEMA-->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Do I need any equipment or experience?", "acceptedAnswer": {"@type": "Answer", "text": "No. Bring yourself and your guests. Microphones, cameras, lights and an operator are included."}}, {"@type": "Question", "name": "What do I get at the end of a session?", "acceptedAnswer": {"@type": "Answer", "text": "Your raw multi-camera video and audio the same day. With The Episode you also get a full edit, three vertical clips and a thumbnail within five working days."}}, {"@type": "Question", "name": "How many people can be on camera?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the space. The Solo Corner is made for one person; the Majlis Lounge and the Desk seat a host with guests. Tell us your line-up and we'll suggest the right space."}}, {"@type": "Question", "name": "Can I reschedule?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, free of charge up to 48 hours before your session. See our cancellation and refund policy for the details."}}, {"@type": "Question", "name": "Where are you, and is there parking?", "acceptedAnswer": {"@type": "Answer", "text": "28B Street, Al Quoz Industrial Area, Dubai, in the same building as OUDCRAFT. Valet parking at the door is free."}}, {"@type": "Question", "name": "Do you work with brands and agencies?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The Series and The Original packages cover recurring shows and full productions. Message us and we'll plan it with you."}}]}</script>
+<!--/FAQ-SCHEMA-->
 </head>
 <body>
 <header class="site">
@@ -70,10 +80,17 @@ window.SARD = {
     <div class="wrap">
       <div class="sec-head"><h2 data-i="howH">How it works</h2><span class="ruqaa" lang="ar">احكِ، والباقي علينا</span></div>
       <div class="steps">
-        <div class="step"><span class="n">01</span><h3 data-i="s1h">Book online</h3><p class="muted" data-i="s1p">Pick a space and a time. Pay by card or Apple Pay in two minutes.</p></div>
+        <div class="step"><span class="n">01</span><h3 data-i="s1h">Pick your space</h3><p class="muted" data-i="s1p">Choose a space and a time, send it to us on WhatsApp, and we confirm your slot.</p></div>
         <div class="step"><span class="n">02</span><h3 data-i="s2h">Come in, have coffee</h3><p class="muted" data-i="s2p">Leave your car with our valet. We welcome you like a majlis, check your sound and settle you in.</p></div>
         <div class="step"><span class="n">03</span><h3 data-i="s3h">Talk</h3><p class="muted" data-i="s3p">Our operator runs the cameras and the audio. You focus on the conversation.</p></div>
         <div class="step"><span class="n">04</span><h3 data-i="s4h">Post it</h3><p class="muted" data-i="s4p">Raw files the same day. Edited episode and clips within five working days.</p></div>
+      </div>
+      <div class="assure" aria-labelledby="asH">
+        <h3 id="asH" class="mono" data-i="asH">Book with confidence</h3>
+        <div class="as"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.3-5.7M4 4v4h4"/></svg></span><div><b data-i="as1h">Free rescheduling</b><span data-i="as1p">Move your session up to 48 hours before it starts.</span></div></div>
+        <div class="as"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b data-i="as2h">Full refund</b><span data-i="as2p">Cancel 48 hours or more before and get all your money back.</span></div></div>
+        <div class="as"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/></svg></span><div><b data-i="as3h">You own your content</b><span data-i="as3p">Every recording and edit we deliver is yours.</span></div></div>
+        <div class="as"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg></span><div><b data-i="as4h">Clear prices</b><span data-i="as4p">Shown in AED with 5% VAT included. No hidden fees.</span></div></div>
       </div>
     </div>
   </section>
@@ -99,6 +116,9 @@ window.SARD = {
         <div><h3 data-i="w3h">Valet at the door</h3><p class="muted" data-i="w3p" data-valet2>No circling for parking before you record.</p></div>
         <div><h3 data-i="w4h">Raw files the same day</h3><p class="muted" data-i="w4p">Leave with your footage. Edits and clips follow within five working days.</p></div>
       </div>
+      <div class="kit"><span class="mono" data-i="kitH">In every session</span>
+        <ul><li data-i="kit1">RØDE broadcast mics and boom arms</li><li data-i="kit2">RØDECaster sound mixer</li><li data-i="kit3">Godox FS200 soft lighting</li><li data-i="kit4">Multi-camera video, 16:9 and 9:16</li></ul>
+      </div>
     </div>
   </section>
 
@@ -110,6 +130,7 @@ window.SARD = {
         <details><summary data-i="fq2">What do I get at the end of a session?</summary><p data-i="fa2">Your raw multi-camera video and audio the same day. With The Episode you also get a full edit, three vertical clips and a thumbnail within five working days.</p></details>
         <details><summary data-i="fq3">How many people can be on camera?</summary><p data-i="fa3">It depends on the space. The Solo Corner is made for one person; the Majlis Lounge and the Desk seat a host with guests. Tell us your line-up and we'll suggest the right space.</p></details>
         <details><summary data-i="fq4">Can I reschedule?</summary><p data-i="fa4">Yes, free of charge up to 48 hours before your session. See our cancellation and refund policy for the details.</p></details>
+        <details><summary data-i="fq6">Where are you, and is there parking?</summary><p data-i="fa6">28B Street, Al Quoz Industrial Area, Dubai, in the same building as OUDCRAFT. Valet parking at the door is free.</p></details>
         <details><summary data-i="fq5">Do you work with brands and agencies?</summary><p data-i="fa5">Yes. The Series and The Original packages cover recurring shows and full productions. Message us and we'll plan it with you.</p></details>
       </div>
     </div>
@@ -197,6 +218,10 @@ window.SARD = {
           <a class="btn ghost" data-cfg="maps" href="https://www.google.com/maps/place/OUDCRAFT/@25.1166783,55.2200037,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5f6b79da6e845f:0xbc6174357ef54df5!8m2!3d25.1166783!4d55.2200037" target="_blank" rel="noopener" data-i="ctMap">Open in Google Maps</a>
         </div>
       </div>
+      <div class="map">
+        <iframe title="Sard on Google Maps" src="https://www.google.com/maps?q=25.1166783,55.2200037&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <p class="small" data-i="mapHint">Sard is in the same building as OUDCRAFT, 28B Street, Al Quoz. Free valet at the door.</p>
+      </div>
     </div>
   </section>
 </div>
@@ -262,10 +287,15 @@ window.SARD = {
   <div class="wrap">
     <span class="logo" style="--s:30px"><span class="a">سرد</span><span class="e">sard</span></span>
     <nav><a href="terms.html" data-i="fTerms">Terms</a><a href="privacy.html" data-i="fPrivacy">Privacy</a><a href="refunds.html" data-i="fRefunds">Cancellations &amp; refunds</a><a href="#contact" data-go="contact" data-i="nContact">Contact</a></nav>
-    <span class="small">© 2026 Sard Studio · <span data-cfg="address">28B Street, Al Quoz Industrial Area, Dubai</span></span>
+    <span class="small"><span data-i="pw">Powered by Swissulife</span> · © 2026 Sard Studio · <span data-cfg="address">28B Street, Al Quoz Industrial Area, Dubai</span></span>
   </div>
 </footer>
 
+<a id="waFloat" class="wa-float" data-wa="hello" href="https://wa.me/971505725515" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5A12.4 12.4 0 0 0 5.3 22.2L3.5 28.5l6.5-1.7A12.4 12.4 0 1 0 16 3.5zm0 22.6c-1.9 0-3.7-.5-5.3-1.4l-.4-.2-3.9 1 1-3.8-.2-.4A10.3 10.3 0 1 1 16 26.1zm5.7-7.7c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.4 8.4 0 0 1-4.2-3.6c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1.1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.4 13.4 0 0 0 5.2 4.6c1.9.8 2.7.9 3.6.7a3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.2-.3-.3-.6-.4z"/></svg><span data-i="waFloat">Chat on WhatsApp</span></a>
+<div id="consent" class="consent" hidden role="region" aria-label="Cookies">
+  <p data-i="ckP">We use cookies to see which ads bring visitors and to improve this site.</p>
+  <div><a href="privacy.html" class="small" data-i="ckMore">Privacy</a><button type="button" id="ckNo" class="btn ghost" data-i="ckNo">Decline</button><button type="button" id="ckYes" class="btn" data-i="ckYes">Accept</button></div>
+</div>
 <script src="app.js"></script>
 </body>
 </html>
