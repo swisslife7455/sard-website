@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://swisslife7455.github.io/sard-website/sitemap.xml
