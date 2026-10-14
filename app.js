@@ -56,6 +56,7 @@ as3h:["You own your content","المحتوى ملكك"],as3p:["Every recording a
 as4h:["Clear prices","أسعار واضحة"],as4p:["Shown in AED with 5% VAT included. No hidden fees.","بالدرهم وشاملة ضريبة 5%، بدون رسوم مخفية."],
 kitH:["In every session","في كل جلسة"],kit1:["RØDE broadcast mics and boom arms","مايكات RØDE احترافية وأذرع تثبيت"],kit2:["RØDECaster sound mixer","ميكسر صوت RØDECaster"],kit3:["Godox FS200 soft lighting","إضاءة Godox FS200 ناعمة"],kit4:["Multi-camera video, 16:9 and 9:16","تصوير بعدة كاميرات، أفقي وعمودي"],
 mapHint:["Sard is in the same building as OUDCRAFT, 28B Street, Al Quoz. Free valet at the door.","سرد في نفس مبنى OUDCRAFT، شارع 28B، القوز. صف السيارات مجاني عند الباب."],
+mapGo:["Get directions →","الاتجاهات ←"],
 pw:["Powered by Swissulife","بدعم من Swissulife"],
 fq6:["Where are you, and is there parking?","وين مكانكم، وفيه مواقف؟"],fa6:["28B Street, Al Quoz Industrial Area, Dubai, in the same building as OUDCRAFT. Valet parking at the door is free.","شارع 28B، منطقة القوز الصناعية، دبي، في نفس مبنى OUDCRAFT. وصف السيارات عند الباب مجاني."],
 waFloat:["Chat on WhatsApp","كلّمنا واتساب"],
