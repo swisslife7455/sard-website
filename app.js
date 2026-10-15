@@ -61,9 +61,20 @@ pw:["Powered by Swissulife","بدعم من Swissulife"],
 fq6:["Where are you, and is there parking?","وين مكانكم، وفيه مواقف؟"],fa6:["28B Street, Al Quoz Industrial Area, Dubai, in the same building as OUDCRAFT. Valet parking at the door is free.","شارع 28B، منطقة القوز الصناعية، دبي، في نفس مبنى OUDCRAFT. وصف السيارات عند الباب مجاني."],
 waFloat:["Chat on WhatsApp","كلّمنا واتساب"],
 ckP:["We use cookies to see which ads bring visitors and to improve this site.","نستخدم ملفات تعريف الارتباط لنعرف أي إعلان جاب الزوار ولتحسين الموقع."],ckYes:["Accept","موافق"],ckNo:["Decline","رفض"],ckMore:["Privacy","الخصوصية"],
+st2:["Date & time","اليوم والوقت"],st3:["Your details","بياناتك"],st4:["Request sent","تم إرسال الطلب"],
+q2:["Pick a day and a time","اختر اليوم والوقت"],q3:["Your details","بياناتك"],
+today:["Today","اليوم"],tomorrow:["Tomorrow","بكرة"],tzNote:["Dubai time (GMT+4)","بتوقيت دبي"],lgFree:["Available","متاح"],lgTaken:["Booked","محجوز"],
+availLoading:["Checking availability…","جاري التحقق من المواعيد المتاحة…"],availLive:["Live availability from the studio calendar.","المواعيد محدّثة مباشرة من تقويم الاستوديو."],noDays:["No free slots in the next three weeks. Message us on WhatsApp and we'll find you a time.","ما في مواعيد متاحة خلال الأسابيع الثلاثة القادمة. راسلنا على الواتساب ونلقى لك وقت."],
+fName:["Full name","الاسم الكامل"],fPhone:["Mobile (WhatsApp)","رقم الجوال (واتساب)"],fPeople:["People on camera","عدد الأشخاص أمام الكاميرا"],fType:["What are you recording?","شو بتسجّل؟"],fNotes:["Anything we should prepare? (optional)","تبا نجهّز لك شي؟ (اختياري)"],
+tyPodcast:["Podcast","بودكاست"],tyInterview:["Interview","مقابلة"],tyReels:["Reels / short videos","ريلز ومقاطع قصيرة"],tyAd:["Ad or brand content","إعلان أو محتوى لعلامة تجارية"],tyOther:["Something else","شي ثاني"],
+reqP:["Your slot is held while we confirm it on WhatsApp, usually within an hour during studio hours. Payment details come with the confirmation.","نحجز لك الموعد مبدئياً لين نأكده على الواتساب، عادة خلال ساعة في أوقات العمل. وتوصلك تفاصيل الدفع مع التأكيد."],
+sendReq:["Send booking request on WhatsApp","أرسل طلب الحجز على الواتساب"],
+errName:["Please add your name.","اكتب اسمك لو سمحت."],errPhone:["Please add a valid mobile number, e.g. +971 50 123 4567.","اكتب رقم جوال صحيح، مثل ‎+971 50 123 4567‎."],
+reqH:["Request sent","تم إرسال طلبك"],reqDone:["WhatsApp has opened with your booking details. Press send there, and we'll confirm your slot and payment details shortly.","فتحنا لك الواتساب وفيه تفاصيل حجزك. اضغط إرسال، ونأكد لك الموعد وتفاصيل الدفع قريباً."],
+refL:["Booking reference","رقم الطلب"],reopenWa:["Open WhatsApp again","افتح الواتساب مرة ثانية"],sWhen:["When","الموعد"],
 pSession:["The Session","جلسة"],pEpisode:["The Episode","حلقة"],hrs:["hr","ساعة"],aed:["AED","درهم"]
 };
-if(!C.calUser){T.s1h=["Pick your space","اختر مساحتك"];T.s1p=["Choose a space and a time, send it to us on WhatsApp, and we confirm your slot.","اختر المساحة والوقت، وأرسلها لنا على الواتساب، ونأكد لك الموعد."];T.st2=["Date & details","الموعد والبيانات"];}
+if(!C.calUser){T.s1h=["Pick your space","اختر مساحتك"];T.s1p=["Choose a space and a time, send it to us on WhatsApp, and we confirm your slot.","اختر المساحة والوقت، وأرسلها لنا على الواتساب، ونأكد لك الموعد."];}
 if(C.valetFree){T.se4=["Free valet parking","صف سيارات مجاني"];T.v6=T.se4;T.valet=T.valetFree;}
 const AR_PAGE=document.documentElement.hasAttribute("data-ar-page");
 const BASE=AR_PAGE?location.pathname.replace(/ar\/[^/]*$/,""):location.pathname.replace(/[^/]*$/,"");
@@ -117,40 +128,131 @@ document.addEventListener("click",e=>{
 const S={pkg:null,space:null,hours:1};
 const SPACES={majlis:{rate:450,min:1},desk:{rate:450,min:1},glow:{rate:450,min:1},green:{rate:400,min:2},solo:{rate:300,min:1}};
 const MAXH=3;
-function pick(p){S.pkg=p;$$(".opt[data-pkg]").forEach(o=>o.setAttribute("aria-pressed",o.dataset.pkg===p));$("#spaceBox").hidden=false;$$(".sp").forEach(b=>{const k=b.dataset.space;b.hidden=(p==="episode"&&(k==="green"||k==="solo"));});if(p==="episode"&&(S.space==="green"||S.space==="solo"))S.space=null;$("#hoursBox").hidden=!(p==="session"&&S.space);$("#n1").disabled=!(S.pkg&&S.space);render();}
-function pickSpace(k){S.space=k;const m=SPACES[k].min;if(S.hours<m)S.hours=m;$$(".sp").forEach(b=>b.setAttribute("aria-pressed",b.dataset.space===k));$("#hoursBox").hidden=S.pkg!=="session";$("#n1").disabled=!(S.pkg&&S.space);render();}
+function pick(p){S.pkg=p;S.start=null;$$(".opt[data-pkg]").forEach(o=>o.setAttribute("aria-pressed",o.dataset.pkg===p));$("#spaceBox").hidden=false;$$(".sp").forEach(b=>{const k=b.dataset.space;b.hidden=(p==="episode"&&(k==="green"||k==="solo"));});if(p==="episode"&&(S.space==="green"||S.space==="solo"))S.space=null;$("#hoursBox").hidden=!(p==="session"&&S.space);$("#n1").disabled=!(S.pkg&&S.space);render();}
+function pickSpace(k){S.space=k;S.start=null;const m=SPACES[k].min;if(S.hours<m)S.hours=m;$$(".sp").forEach(b=>b.setAttribute("aria-pressed",b.dataset.space===k));$("#hoursBox").hidden=S.pkg!=="session";$("#n1").disabled=!(S.pkg&&S.space);render();}
 $$(".sp").forEach(b=>b.addEventListener("click",()=>pickSpace(b.dataset.space)));
 $$(".opt[data-pkg]").forEach(o=>o.addEventListener("click",()=>pick(o.dataset.pkg)));
-$("#hMinus").addEventListener("click",()=>{S.hours=Math.max(S.space?SPACES[S.space].min:1,S.hours-1);render();});
-$("#hPlus").addEventListener("click",()=>{S.hours=Math.min(MAXH,S.hours+1);render();});
-function show(n){[1,2,3].forEach(i=>$("#s"+i).hidden=i!==n);$$("#stepper span").forEach((s,i)=>{s.className=i+1<n?"done":i+1===n?"on":"";});}
+$("#hMinus").addEventListener("click",()=>{S.start=null;S.hours=Math.max(S.space?SPACES[S.space].min:1,S.hours-1);render();});
+$("#hPlus").addEventListener("click",()=>{S.start=null;S.hours=Math.min(MAXH,S.hours+1);render();});
+function show(n){[1,2,3,4].forEach(i=>$("#s"+i).hidden=i!==n);$$("#stepper span").forEach((s,i)=>{s.className=i+1<n?"done":i+1===n?"on":"";});
+  const top=$("#p-book");if(top&&n>1)top.scrollIntoView({behavior:"smooth",block:"start"});}
 $("#n1").addEventListener("click",()=>{show(2);loadBooking();track("begin_checkout",{package:S.pkg,space:S.space,value:total(),currency:"AED"});});
 $$("[data-back]").forEach(b=>b.addEventListener("click",()=>show(+b.dataset.back)));
 
 function slug(){return S.pkg==="episode"?`episode-${S.space}`:`${S.space}-${S.hours}h`;}
-function summaryText(lg){const l=L;L=lg;const s=(S.pkg==="session"?`${t("pSession")} · ${S.hours} ${t("hrs")}`:t("pEpisode"))+` · ${t("sp_"+S.space)} · ${t("aed")} ${total().toLocaleString("en-US")}`;L=l;return s;}
-let calReady=false;
 function loadCalScript(){
   if(window.Cal)return;
   (function(C,A,Lb){let p=function(a,ar){a.q.push(ar);};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true;}if(ar[0]===Lb){const api=function(){p(api,arguments);};const namespace=ar[1];api.q=api.q||[];if(typeof namespace==="string"){cal.ns[namespace]=cal.ns[namespace]||api;p(cal.ns[namespace],ar);p(cal,["initNamespace",namespace]);}else p(cal,ar);return;}p(cal,ar);};})(window,"https://app.cal.com/embed/embed.js","init");
   Cal("init",{origin:"https://cal.com"});
   Cal("ui",{theme:"light",cssVarsPerTheme:{light:{"cal-brand":"#FF6B1A"}},hideEventTypeDetails:false,layout:"month_view"});
-  Cal("on",{action:"bookingSuccessful",callback:()=>show(3)});
+  Cal("on",{action:"bookingSuccessful",callback:()=>show(4)});
 }
-function loadBooking(){
-  const box=$("#cal"),wa=$("#waBook");
-  if(!C.calUser){box.hidden=true;wa.hidden=false;
-    const msg=(L?"هلا سرد، أبا أحجز: ":"Hi Sard, I'd like to book: ")+summaryText(L)+(L?"\nالموعد المفضل: ":"\nPreferred day and time: ");
-    $("#waBookBtn").href=waLink(msg);if(!C.whatsapp){$("#waBookBtn").removeAttribute("target");$("#waBookBtn").dataset.go="contact";}
-    return;}
-  wa.hidden=true;box.hidden=false;box.innerHTML="";
-  loadCalScript();
-  Cal("inline",{elementOrSelector:"#cal",calLink:`${C.calUser}/${slug()}`,layout:"month_view",config:{layout:"month_view"}});
+
+/* ---------- WhatsApp booking with day/time picker ---------- */
+const TZ="Asia/Dubai",OFF=4; // Dubai is UTC+4 all year
+const OPEN=+C.open||9,CLOSE=+C.close||23,LEAD=(C.leadHours!=null?+C.leadHours:3),AHEAD=+C.daysAhead||21;
+let AV={busy:[],closed:[]},AVloaded=false,AVsource="";
+S.day=null;S.start=null; // day = "YYYY-MM-DD" (Dubai), start = hour (Dubai)
+function dur(){return S.pkg==="episode"?2:S.hours;}
+function dubaiNow(){const d=new Date(Date.now()+OFF*36e5);return{y:d.getUTCFullYear(),m:d.getUTCMonth(),d:d.getUTCDate(),h:d.getUTCHours()+d.getUTCMinutes()/60};}
+function ms(day,h){const[y,m,d]=day.split("-").map(Number);return Date.UTC(y,m-1,d,0,0)+(h-OFF)*36e5;}
+function iso(day,h){const x=new Date(ms(day,h)+OFF*36e5);const p=n=>String(n).padStart(2,"0");return `${x.getUTCFullYear()}-${p(x.getUTCMonth()+1)}-${p(x.getUTCDate())}T${p(x.getUTCHours())}:${p(x.getUTCMinutes())}:00+04:00`;}
+function dayKey(offset){const n=dubaiNow();const x=new Date(Date.UTC(n.y,n.m,n.d+offset));return x.toISOString().slice(0,10);}
+const loc=()=>L?"ar-AE":"en-GB";
+function fmtDay(day,opts){return new Intl.DateTimeFormat(loc(),Object.assign({timeZone:"UTC"},opts)).format(new Date(day+"T00:00:00Z"));}
+function fmtTime(day,h){return new Intl.DateTimeFormat(L?"ar-AE":"en-US",{timeZone:TZ,hour:"numeric",minute:"2-digit",numberingSystem:"latn"}).format(new Date(ms(day,h)));}
+function clash(day,h){const a=ms(day,h),b=a+dur()*36e5;
+  if((AV.closed||[]).includes(day))return true;
+  return (AV.busy||[]).some(x=>{const sp=x.space||"all";if(sp!=="all"&&sp!==S.space)return false;const xs=Date.parse(x.s),xe=Date.parse(x.e);return a<xe&&b>xs;});}
+function slotOK(day,h){return h>=OPEN&&h+dur()<=CLOSE&&ms(day,h)>=Date.now()+LEAD*36e5&&!clash(day,h);}
+function dayHasSlots(day){for(let h=OPEN;h+dur()<=CLOSE;h++)if(slotOK(day,h))return true;return false;}
+async function loadAvail(){
+  if(AVloaded)return;
+  const tries=C.bookingApi?[C.bookingApi+(C.bookingApi.includes("?")?"&":"?")+"days="+AHEAD,"availability.json"]:[ (AR_PAGE?"../":"")+"availability.json"];
+  for(const u of tries){try{const r=await fetch(u,{cache:"no-store"});if(!r.ok)continue;const j=await r.json();if(j&&Array.isArray(j.busy)){AV=j;AVsource=u===tries[0]&&C.bookingApi?"live":"file";AVloaded=true;return;}}catch(e){}}
+  AVloaded=true;AVsource="none";
 }
+function renderPicker(){
+  const days=$("#days");days.innerHTML="";
+  let first=null;
+  for(let i=0;i<AHEAD;i++){const k=dayKey(i);const ok=dayHasSlots(k);if(ok&&!first)first=k;
+    const b=document.createElement("button");b.type="button";b.className="day";b.dataset.day=k;b.disabled=!ok;b.setAttribute("aria-pressed",String(S.day===k));
+    b.innerHTML=`<small>${i===0?t("today"):i===1?t("tomorrow"):fmtDay(k,{weekday:"short"})}</small><b>${fmtDay(k,{day:"numeric",numberingSystem:"latn"})}</b><small>${fmtDay(k,{month:"short"})}</small>`;
+    b.onclick=()=>{S.day=k;S.start=null;renderPicker();};days.appendChild(b);}
+  if(!S.day||!dayHasSlots(S.day)){S.day=first;S.start=null;$$("#days .day").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.day===S.day)));}
+  const sl=$("#slots");sl.innerHTML="";
+  $("#dayLabel").textContent=S.day?fmtDay(S.day,{weekday:"long",day:"numeric",month:"long"}):"";
+  if(S.day){for(let h=OPEN;h+dur()<=CLOSE;h++){const ok=slotOK(S.day,h);const past=ms(S.day,h)<Date.now()+LEAD*36e5;if(past)continue;
+    const b=document.createElement("button");b.type="button";b.className="slot";b.disabled=!ok;b.setAttribute("aria-pressed",String(S.start===h));
+    b.textContent=fmtTime(S.day,h);b.title=`${fmtTime(S.day,h)} – ${fmtTime(S.day,h+dur())}`;
+    b.onclick=()=>{S.start=h;renderPicker();};sl.appendChild(b);}}
+  $("#availNote").textContent=!S.day?t("noDays"):AVsource==="live"?t("availLive"):"";
+  $("#n2").disabled=S.start==null;
+  render();
+}
+async function loadBooking(){
+  const box=$("#cal"),pk=$("#picker");
+  if(C.calUser){pk.hidden=true;$("#n2").hidden=true;box.hidden=false;box.innerHTML="";loadCalScript();
+    Cal("inline",{elementOrSelector:"#cal",calLink:`${C.calUser}/${slug()}`,layout:"month_view",config:{layout:"month_view"}});return;}
+  box.hidden=true;pk.hidden=false;
+  if(!AVloaded){$("#availNote").textContent=t("availLoading");await loadAvail();}
+  renderPicker();
+}
+$("#n2").addEventListener("click",()=>{if(S.start==null)return;show(3);try{const d=JSON.parse(localStorage.getItem("sard-guest")||"{}");if(d.name&&!$("#fName").value)$("#fName").value=d.name;if(d.phone&&!$("#fPhone").value)$("#fPhone").value=d.phone;}catch(e){}$("#fName").focus({preventScroll:true});});
+
+function bookingRef(){const p=n=>String(n).padStart(2,"0");return `SRD-${S.day.slice(5,7)}${S.day.slice(8,10)}-${p(S.start)}00-${Math.random().toString(36).slice(2,4).toUpperCase()}`;}
+function pkgName(lg){return lg?(S.pkg==="episode"?"حلقة (ساعتين، مونتاج كامل، 5 مقاطع)":`جلسة (${({1:"ساعة واحدة",2:"ساعتان",3:"3 ساعات"})[S.hours]})`):(S.pkg==="episode"?"The Episode (2 hours, full edit, 5 clips)":`The Session (${S.hours} hour${S.hours>1?"s":""})`);}
+function buildMessage(d){
+  const l0=L;const lg=L;
+  const dayTxt=fmtDay(S.day,{weekday:"long",day:"numeric",month:"long",year:"numeric",numberingSystem:"latn"});
+  const time=`${fmtTime(S.day,S.start)} – ${fmtTime(S.day,S.start+dur())}`;
+  const sp=t("sp_"+S.space),tot=total().toLocaleString("en-US");
+  const types={podcast:["Podcast","بودكاست"],interview:["Interview","مقابلة"],reels:["Reels / short videos","ريلز ومقاطع قصيرة"],ad:["Ad or brand content","إعلان أو محتوى لعلامة تجارية"],other:["Other","أخرى"]};
+  const ppl=lg?({"1":"شخص واحد","2":"شخصان","3":"3 أشخاص","4":"4 أشخاص أو أكثر"})[d.people]:({"1":"1 person","2":"2 people","3":"3 people","4":"4 or more people"})[d.people];
+  const ph=/^\+971\d{9}$/.test(d.phone)?d.phone.replace(/^\+971(\d{2})(\d{3})(\d{4})$/,"+971 $1 $2 $3"):d.phone;
+  const lines=lg?[
+    "السلام عليكم، أود حجز موعد في استوديو سرد.","",
+    `*طلب حجز · ${d.ref}*`,
+    `• الباقة: ${pkgName(1)}`,`• المساحة: ${sp}`,`• التاريخ: ${dayTxt}`,`• الوقت: ${time} (بتوقيت دبي)`,
+    `• أمام الكاميرا: ${ppl}`,`• نوع التسجيل: ${types[d.type][1]}`,`• المجموع: ${tot} درهم (شامل ضريبة القيمة المضافة 5%)`,"",
+    `الاسم: ${d.name}`,`الجوال: \u200E${ph}\u200E`].concat(d.notes?[`ملاحظات: ${d.notes}`]:[]).concat(["","أرجو تأكيد الموعد وإرسال تفاصيل الدفع. شكراً لكم."])
+  :[
+    "Hello Sard Studio, I'd like to book a session.","",
+    `*Booking request · ${d.ref}*`,
+    `• Package: ${pkgName(0)}`,`• Space: ${sp}`,`• Date: ${dayTxt}`,`• Time: ${time} (Dubai time)`,
+    `• On camera: ${ppl}`,`• Recording: ${types[d.type][0]}`,`• Total: AED ${tot} (incl. 5% VAT)`,"",
+    `Name: ${d.name}`,`Mobile: ${ph}`].concat(d.notes?[`Notes: ${d.notes}`]:[]).concat(["","Please confirm my slot and send the payment details. Thank you."]);
+  L=l0;return lines.join("\n");
+}
+function normPhone(v){let s=(v||"").replace(/[^\d+]/g,"");if(s.startsWith("00"))s="+"+s.slice(2);if(/^05\d{8}$/.test(s))s="+971"+s.slice(1);if(/^5\d{8}$/.test(s))s="+971"+s;return s;}
+$("#sendReq").addEventListener("click",()=>{
+  const err=$("#fErr");err.hidden=true;
+  const name=$("#fName").value.trim().replace(/\s+/g," "),phone=normPhone($("#fPhone").value);
+  if(name.length<2){err.textContent=t("errName");err.hidden=false;$("#fName").focus();return;}
+  if(!/^\+?\d{8,15}$/.test(phone)){err.textContent=t("errPhone");err.hidden=false;$("#fPhone").focus();return;}
+  if(S.start==null||!slotOK(S.day,S.start)){show(2);renderPicker();return;}
+  const d={ref:bookingRef(),name,phone,people:$("#fPeople").value,type:$("#fType").value,notes:$("#fNotes").value.trim().slice(0,300)};
+  try{localStorage.setItem("sard-guest",JSON.stringify({name,phone}))}catch(e){}
+  const msg=buildMessage(d),url=waLink(msg);
+  // alert the studio (calendar hold + email) — fire-and-forget, never blocks the guest
+  if(C.bookingApi&&!$("#fHp").value){try{fetch(C.bookingApi,{method:"POST",mode:"no-cors",keepalive:true,body:JSON.stringify({
+    ref:d.ref,name,phone,people:d.people,type:d.type,notes:d.notes,pkg:S.pkg,hours:dur(),space:S.space,spaceName:T["sp_"+S.space][0],
+    start:iso(S.day,S.start),end:iso(S.day,S.start+dur()),total:total(),lang:L?"ar":"en",ref_source:REF||"direct",page:location.href.split("#")[0]})});}catch(e){}}
+  track("lead",{method:"booking_request",package:S.pkg,space:S.space,value:total(),currency:"AED"});
+  // mark the slot as taken on this device so it doesn't show as free if they come back
+  AV.busy=(AV.busy||[]).concat([{s:iso(S.day,S.start),e:iso(S.day,S.start+dur()),space:S.space}]);
+  window.open(url,"_blank","noopener");
+  $("#doneTitle").textContent=t("reqH");$("#doneText").textContent=t("reqDone");
+  $("#refBox").hidden=false;$("#refBox").innerHTML=`<span>${t("refL")}</span><b dir="ltr">${d.ref}</b><span>${$("#sumWhen").textContent}</span>`;
+  const re=$("#reopenWa");re.href=url;re.hidden=false;$("#addonsBtn").hidden=true;
+  show(4);
+});
+
 function total(){if(!S.pkg||!S.space)return 0;return S.pkg==="session"?SPACES[S.space].rate*S.hours:990;}
 function render(){
   $("#hOut").textContent=`${S.hours} ${t("hrs")}`;
   $("#sumPkg").textContent=S.pkg?(S.pkg==="session"?`${t("pSession")} · ${S.hours} ${t("hrs")}`:t("pEpisode"))+(S.space?` · ${t("sp_"+S.space)}`:""):"—";
+  $("#sumWhen").textContent=(S.day&&S.start!=null)?`${fmtDay(S.day,{weekday:"short",day:"numeric",month:"short"})} · ${fmtTime(S.day,S.start)} – ${fmtTime(S.day,S.start+dur())}`:"—";
   $("#sumTotal").textContent=`${t("aed")} ${total().toLocaleString("en-US")}`;
 }
 // ---------- analytics: Meta Pixel + Google Analytics 4, loaded only after consent ----------

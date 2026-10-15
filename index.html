@@ -38,7 +38,11 @@ window.SARD = {
   valetFree: true,         // true = "Free valet parking"
   instagram: "sard.studio.971",
   metaPixel: "",           // Meta Pixel ID (digits) — paste to switch on ad tracking
-  ga4: ""                  // Google Analytics 4 ID, e.g. "G-XXXXXXX"
+  ga4: "",                 // Google Analytics 4 ID, e.g. "G-XXXXXXX"
+  bookingApi: "",          // Google Apps Script web-app URL: live availability + booking alerts
+  open: 9, close: 23,      // studio hours (24h, Dubai time)
+  leadHours: 3,            // earliest bookable start = now + this many hours
+  daysAhead: 21
 };
 </script>
 
@@ -233,7 +237,7 @@ window.SARD = {
       <div class="sec-head"><h2 data-i="bkH">Book your chair</h2><span class="ruqaa" lang="ar">احجز كرسيك</span></div>
       <div class="book">
         <div>
-          <div class="stepper" id="stepper"><span data-i="st1">Space</span><span data-i="st2">Date, details &amp; payment</span><span data-i="st3">Confirmed</span></div>
+          <div class="stepper" id="stepper"><span data-i="st1">Space</span><span data-i="st2">Date &amp; time</span><span data-i="st3">Your details</span><span data-i="st4">Request sent</span></div>
 
           <div class="panel" id="s1">
             <h3 data-i="q1">What would you like to book?</h3>
@@ -254,26 +258,47 @@ window.SARD = {
           </div>
 
           <div class="panel" id="s2" hidden>
-            <h3 data-i="q2">Pick a time, add your details and pay</h3>
-            <div class="calbox" id="cal"><p class="calwait" data-i="calWait">Loading the studio calendar…</p></div>
-            <div id="waBook" hidden style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
-              <p class="muted" data-i="waBookP">Online payment opens very soon. For now, send us your booking on WhatsApp and we'll confirm your time and send a secure payment link.</p>
-              <a class="btn wa" id="waBookBtn" href="#" target="_blank" rel="noopener" data-i="waBookBtn">Send booking on WhatsApp</a>
+            <h3 data-i="q2">Pick a day and a time</h3>
+            <div class="calbox" id="cal" hidden><p class="calwait" data-i="calWait">Loading the studio calendar…</p></div>
+            <div id="picker">
+              <div class="days" id="days" role="listbox" aria-label="Day"></div>
+              <div class="slothead"><b id="dayLabel"></b><span class="small muted" data-i="tzNote">Dubai time (GMT+4)</span></div>
+              <p class="small muted" id="availNote" aria-live="polite"></p>
+              <div class="slots" id="slots" role="listbox" aria-label="Start time"></div>
+              <p class="legend small muted"><span class="lg free"></span><span data-i="lgFree">Available</span><span class="lg taken"></span><span data-i="lgTaken">Booked</span></p>
             </div>
-            <div class="nav-row"><button class="back" data-back="1" data-i="back">← Back</button><span></span></div>
+            <div class="nav-row"><button class="back" data-back="1" data-i="back">← Back</button><button class="btn" id="n2" disabled data-i="next">Next</button></div>
           </div>
 
-          <div class="panel confirm" id="s3" hidden>
-            <span class="tick">✓</span>
-            <h3 data-i="doneH">You're on air.</h3>
-            <p class="muted" data-i="doneP">Your booking is confirmed and a confirmation email is on its way. Want subtitles, extra clips or a rush edit? Message us and we'll add them.</p>
-            <a class="btn wa" data-wa="addons" href="https://wa.me/971505725515" target="_blank" rel="noopener" data-i="doneWa">Add extras on WhatsApp</a>
+          <div class="panel" id="s3" hidden>
+            <h3 data-i="q3">Your details</h3>
+            <form class="form" id="bkForm" novalidate>
+              <label><span data-i="fName">Full name</span><input id="fName" name="name" autocomplete="name" required maxlength="60"></label>
+              <label><span data-i="fPhone">Mobile (WhatsApp)</span><input id="fPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required maxlength="20" placeholder="+971 5X XXX XXXX" dir="ltr"></label>
+              <label><span data-i="fPeople">People on camera</span><select id="fPeople" name="people"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4+</option></select></label>
+              <label><span data-i="fType">What are you recording?</span><select id="fType" name="type"><option value="podcast" data-i="tyPodcast">Podcast</option><option value="interview" data-i="tyInterview">Interview</option><option value="reels" data-i="tyReels">Reels / short videos</option><option value="ad" data-i="tyAd">Ad or brand content</option><option value="other" data-i="tyOther">Something else</option></select></label>
+              <label class="full"><span data-i="fNotes">Anything we should prepare? (optional)</span><textarea id="fNotes" name="notes" rows="3" maxlength="300"></textarea></label>
+              <input type="text" name="company_site" id="fHp" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+              <p class="err" id="fErr" hidden></p>
+            </form>
+            <p class="small muted" data-i="reqP">Your slot is held while we confirm it on WhatsApp, usually within an hour during studio hours. Payment details come with the confirmation.</p>
+            <div class="nav-row"><button class="back" data-back="2" data-i="back">← Back</button><button class="btn wa" id="sendReq" data-i="sendReq">Send booking request on WhatsApp</button></div>
+          </div>
+
+          <div class="panel confirm" id="s4" hidden>
+            <span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <h3 id="doneTitle" data-i="doneH">You're on air.</h3>
+            <p class="muted" id="doneText" data-i="doneP">Your booking is confirmed and a confirmation email is on its way. Want subtitles, extra clips or a rush edit? Message us and we'll add them.</p>
+            <p class="refbox" id="refBox" hidden></p>
+            <a class="btn wa" id="reopenWa" href="https://wa.me/971505725515" target="_blank" rel="noopener" data-i="reopenWa" hidden>Open WhatsApp again</a>
+            <a class="btn wa" data-wa="addons" id="addonsBtn" href="https://wa.me/971505725515" target="_blank" rel="noopener" data-i="doneWa">Add extras on WhatsApp</a>
           </div>
         </div>
 
         <aside class="summary" aria-live="polite">
           <span class="mono" style="color:var(--mist)" data-i="sumH">Your booking</span>
           <div class="row"><span data-i="sPkg">Package</span><span id="sumPkg">—</span></div>
+          <div class="row"><span data-i="sWhen">When</span><span id="sumWhen">—</span></div>
           <div class="row total"><span data-i="sTotal">Total</span><span id="sumTotal">AED 0</span></div>
           <p class="note" data-i="sNote">Includes 5% VAT. Free rescheduling up to 48 hours before.</p>
         </aside>

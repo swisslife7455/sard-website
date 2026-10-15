@@ -37,7 +37,11 @@ window.SARD = {
   valetFree: true,         // true = "Free valet parking"
   instagram: "sard.studio.971",
   metaPixel: "",           // Meta Pixel ID (digits) — paste to switch on ad tracking
-  ga4: ""                  // Google Analytics 4 ID, e.g. "G-XXXXXXX"
+  ga4: "",                 // Google Analytics 4 ID, e.g. "G-XXXXXXX"
+  bookingApi: "",          // Google Apps Script web-app URL: live availability + booking alerts
+  open: 9, close: 23,      // studio hours (24h, Dubai time)
+  leadHours: 3,            // earliest bookable start = now + this many hours
+  daysAhead: 21
 };
 </script>
 
@@ -232,7 +236,7 @@ window.SARD = {
       <div class="sec-head"><h2 data-i="bkH">احجز كرسيك</h2><span class="ruqaa" lang="ar">احجز كرسيك</span></div>
       <div class="book">
         <div>
-          <div class="stepper" id="stepper"><span data-i="st1">المساحة</span><span data-i="st2">الموعد والبيانات</span><span data-i="st3">تم التأكيد</span></div>
+          <div class="stepper" id="stepper"><span data-i="st1">المساحة</span><span data-i="st2">اليوم والوقت</span><span data-i="st3">بياناتك</span><span data-i="st4">تم إرسال الطلب</span></div>
 
           <div class="panel" id="s1">
             <h3 data-i="q1">شو تبا تحجز؟</h3>
@@ -253,26 +257,47 @@ window.SARD = {
           </div>
 
           <div class="panel" id="s2" hidden="">
-            <h3 data-i="q2">اختر الوقت، أضف بياناتك وادفع</h3>
-            <div class="calbox" id="cal"><p class="calwait" data-i="calWait">جاري تحميل تقويم الاستوديو…</p></div>
-            <div id="waBook" hidden="" style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
-              <p class="muted" data-i="waBookP">الدفع الإلكتروني قريباً. حالياً أرسل لنا حجزك على الواتساب، ونأكد لك الموعد وطريقة الدفع.</p>
-              <a class="btn wa" id="waBookBtn" href="#" target="_blank" rel="noopener" data-i="waBookBtn">أرسل الحجز على الواتساب</a>
+            <h3 data-i="q2">اختر اليوم والوقت</h3>
+            <div class="calbox" id="cal" hidden=""><p class="calwait" data-i="calWait">جاري تحميل تقويم الاستوديو…</p></div>
+            <div id="picker">
+              <div class="days" id="days" role="listbox" aria-label="Day"></div>
+              <div class="slothead"><b id="dayLabel"></b><span class="small muted" data-i="tzNote">بتوقيت دبي</span></div>
+              <p class="small muted" id="availNote" aria-live="polite"></p>
+              <div class="slots" id="slots" role="listbox" aria-label="Start time"></div>
+              <p class="legend small muted"><span class="lg free"></span><span data-i="lgFree">متاح</span><span class="lg taken"></span><span data-i="lgTaken">محجوز</span></p>
             </div>
-            <div class="nav-row"><button class="back" data-back="1" data-i="back">رجوع →</button><span></span></div>
+            <div class="nav-row"><button class="back" data-back="1" data-i="back">رجوع →</button><button class="btn" id="n2" disabled="" data-i="next">التالي</button></div>
           </div>
 
-          <div class="panel confirm" id="s3" hidden="">
-            <span class="tick">✓</span>
-            <h3 data-i="doneH">أنت على الهوا.</h3>
-            <p class="muted" data-i="doneP">حجزك مؤكد ورسالة التأكيد في طريقها لبريدك. تبا ترجمة أو مقاطع إضافية أو مونتاج مستعجل؟ راسلنا ونضيفها لك.</p>
-            <a class="btn wa" data-wa="addons" href="https://wa.me/971505725515?text=%D9%87%D9%84%D8%A7%20%D8%B3%D8%B1%D8%AF%D8%8C%20%D8%AD%D8%AC%D8%B2%D8%AA%20%D9%84%D9%84%D8%AA%D9%88%20%D9%88%D8%A3%D8%A8%D8%A7%20%D8%A3%D8%B6%D9%8A%D9%81%20%D8%A5%D8%B6%D8%A7%D9%81%D8%A7%D8%AA%20%D8%B9%D9%84%D9%89%20%D8%AC%D9%84%D8%B3%D8%AA%D9%8A." target="_blank" rel="noopener" data-i="doneWa">أضف الإضافات على الواتساب</a>
+          <div class="panel" id="s3" hidden="">
+            <h3 data-i="q3">بياناتك</h3>
+            <form class="form" id="bkForm" novalidate="">
+              <label><span data-i="fName">الاسم الكامل</span><input id="fName" name="name" autocomplete="name" required="" maxlength="60"></label>
+              <label><span data-i="fPhone">رقم الجوال (واتساب)</span><input id="fPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required="" maxlength="20" placeholder="+971 5X XXX XXXX" dir="ltr"></label>
+              <label><span data-i="fPeople">عدد الأشخاص أمام الكاميرا</span><select id="fPeople" name="people"><option value="1">1</option><option value="2" selected="">2</option><option value="3">3</option><option value="4">4+</option></select></label>
+              <label><span data-i="fType">شو بتسجّل؟</span><select id="fType" name="type"><option value="podcast" data-i="tyPodcast">بودكاست</option><option value="interview" data-i="tyInterview">مقابلة</option><option value="reels" data-i="tyReels">ريلز ومقاطع قصيرة</option><option value="ad" data-i="tyAd">إعلان أو محتوى لعلامة تجارية</option><option value="other" data-i="tyOther">شي ثاني</option></select></label>
+              <label class="full"><span data-i="fNotes">تبا نجهّز لك شي؟ (اختياري)</span><textarea id="fNotes" name="notes" rows="3" maxlength="300"></textarea></label>
+              <input type="text" name="company_site" id="fHp" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+              <p class="err" id="fErr" hidden=""></p>
+            </form>
+            <p class="small muted" data-i="reqP">نحجز لك الموعد مبدئياً لين نأكده على الواتساب، عادة خلال ساعة في أوقات العمل. وتوصلك تفاصيل الدفع مع التأكيد.</p>
+            <div class="nav-row"><button class="back" data-back="2" data-i="back">رجوع →</button><button class="btn wa" id="sendReq" data-i="sendReq">أرسل طلب الحجز على الواتساب</button></div>
+          </div>
+
+          <div class="panel confirm" id="s4" hidden="">
+            <span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+            <h3 id="doneTitle" data-i="doneH">أنت على الهوا.</h3>
+            <p class="muted" id="doneText" data-i="doneP">حجزك مؤكد ورسالة التأكيد في طريقها لبريدك. تبا ترجمة أو مقاطع إضافية أو مونتاج مستعجل؟ راسلنا ونضيفها لك.</p>
+            <p class="refbox" id="refBox" hidden=""></p>
+            <a class="btn wa" id="reopenWa" href="https://wa.me/971505725515" target="_blank" rel="noopener" data-i="reopenWa" hidden="">افتح الواتساب مرة ثانية</a>
+            <a class="btn wa" data-wa="addons" id="addonsBtn" href="https://wa.me/971505725515?text=%D9%87%D9%84%D8%A7%20%D8%B3%D8%B1%D8%AF%D8%8C%20%D8%AD%D8%AC%D8%B2%D8%AA%20%D9%84%D9%84%D8%AA%D9%88%20%D9%88%D8%A3%D8%A8%D8%A7%20%D8%A3%D8%B6%D9%8A%D9%81%20%D8%A5%D8%B6%D8%A7%D9%81%D8%A7%D8%AA%20%D8%B9%D9%84%D9%89%20%D8%AC%D9%84%D8%B3%D8%AA%D9%8A." target="_blank" rel="noopener" data-i="doneWa">أضف الإضافات على الواتساب</a>
           </div>
         </div>
 
         <aside class="summary" aria-live="polite">
           <span class="mono" style="color:var(--mist)" data-i="sumH">حجزك</span>
           <div class="row"><span data-i="sPkg">الباقة</span><span id="sumPkg">—</span></div>
+          <div class="row"><span data-i="sWhen">الموعد</span><span id="sumWhen">—</span></div>
           <div class="row total"><span data-i="sTotal">المجموع</span><span id="sumTotal">درهم 0</span></div>
           <p class="note" data-i="sNote">شامل الضريبة 5%. تغيير الموعد مجاني قبل 48 ساعة.</p>
         </aside>
