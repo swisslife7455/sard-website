@@ -52,7 +52,22 @@ def to_ar_paths(html):
     return re.sub(r'\b(href|src)="(?!https?:|#|mailto:|tel:|/|\.\./|data:)([^"]+)"', r'\1="../\2"', html)
 
 
+def stamp_assets():
+    """Add ?v=<content hash> to app.js and styles.css links so browsers never mix old and new files."""
+    import hashlib
+    vers = {f: hashlib.sha1((ROOT / f).read_bytes()).hexdigest()[:8] for f in ("app.js", "styles.css")}
+    for page in [ROOT / "index.html"] + [ROOT / n for n in ("terms.html", "privacy.html", "refunds.html", "404.html")]:
+        if not page.exists():
+            continue
+        h = page.read_text(encoding="utf-8")
+        for f, v in vers.items():
+            h = re.sub(r'((?:src|href)="(?:\.\./)?)' + re.escape(f) + r'(?:\?v=[0-9a-f]+)?"', lambda m: f'{m.group(1)}{f}?v={v}"', h)
+        page.write_text(h, encoding="utf-8")
+    return vers
+
+
 def main():
+    print("asset versions:", stamp_assets())
     idx = ROOT / "index.html"
     url = idx.as_uri()
 
