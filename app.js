@@ -2,9 +2,9 @@
 const C=window.SARD||{};
 const T={
 nHome:["Home","الرئيسية"],nPackages:["Packages","الباقات"],nStudio:["The Studio","الاستوديو"],nContact:["Contact","تواصل"],nBook:["Book","احجز"],bookNow:["Book now","احجز الآن"],
-kick:["Podcast & content studio · Dubai","استوديو بودكاست ومحتوى · دبي"],
+kick:["Podcast studio in Dubai · Al Quoz","استوديو بودكاست في دبي · القوز"],
 h1:["Pull up a chair. You're on air.","تفضّل، أنت على الهوا."],
-sub:["Walk in, talk, and walk out with content ready to post. We handle the cameras, the sound and the edit. You just bring the story.","تعال، احكِ، واطلع ومحتواك جاهز للنشر. الكاميرات والصوت والمونتاج علينا، وعليك الحكاية بس."],
+sub:["Walk in, talk, and walk out with content ready to post. Our podcast and video studio in Al Quoz handles the cameras, the sound and the edit. You just bring the story.","تعال، احكِ، واطلع ومحتواك جاهز للنشر. استوديو البودكاست والفيديو عندنا في القوز يتكفّل بالكاميرات والصوت والمونتاج، وعليك الحكاية بس."],
 offerB:["AED 990","990 درهم"],offerT:["Opening offer: your first full Episode with 5 clips, for the first 30 guests","عرض الافتتاح: حلقتك الأولى كاملة مع 5 مقاطع، لأول 30 ضيف"],
 cta1:["Book your chair","احجز كرسيك"],cta2:["See packages","شوف الباقات"],
 howH:["How it works","كيف نشتغل"],
@@ -12,8 +12,8 @@ s1h:["Book online","احجز أونلاين"],s1p:["Pick a space and a time. Pay
 s2h:["Come in, have coffee","تفضّل، القهوة جاهزة"],s2p:["Leave your car with our valet. We welcome you like a majlis, check your sound and settle you in.","اترك سيارتك مع خدمة صف السيارات، ونستقبلك مثل المجلس ونجرب الصوت ونجهزك."],
 s3h:["Talk","احكِ"],s3p:["Our operator runs the cameras and the audio. You focus on the conversation.","المشغّل يدير الكاميرات والصوت، وأنت ركّز على الحوار."],
 s4h:["Post it","انشر"],s4p:["Raw files the same day. Edited episode and clips within five working days.","الملفات الخام بنفس اليوم، والحلقة والمقاطع خلال خمسة أيام عمل."],
-galH:["Inside Sard","من داخل سرد"],
-whyH:["Why Sard","ليش سرد"],
+galH:["Inside the studio","من داخل الاستوديو"],
+whyH:["Why creators book Sard","ليش صنّاع المحتوى يختارون سرد"],
 w1h:["An operator in every session","مشغّل في كل جلسة"],w1p:["You never touch a button. We run the cameras, lights and sound.","ما تلمس ولا زر. الكاميرات والإضاءة والصوت علينا."],
 w2h:["Five spaces, one address","خمس مساحات في مكان واحد"],w2p:["A majlis, a desk, a glow lounge, a green screen and a solo corner.","مجلس، ومكتب، وصالة ضوء، وشاشة خضراء، وركن فردي."],
 w3h:["Valet at the door","صف السيارات عند الباب"],w3p:["No circling for parking before you record.","لا تدوّر على موقف قبل التسجيل."],
@@ -58,6 +58,7 @@ kitH:["In every session","في كل جلسة"],kit1:["RØDE broadcast mics and b
 mapHint:["Sard is in the same building as OUDCRAFT, 28B Street, Al Quoz. Free valet at the door.","سرد في نفس مبنى OUDCRAFT، شارع 28B، القوز. صف السيارات مجاني عند الباب."],
 mapGo:["Get directions →","الاتجاهات ←"],
 pw:["Powered by Swissulife","بدعم من Swissulife"],
+fq7:["How much does it cost to record a podcast at Sard?","كم تكلفة تسجيل بودكاست في سرد؟"],fa7:["Studio time with an operator starts at AED 300 an hour in the Solo Corner, AED 400 in the Green Screen and AED 450 in the Majlis Lounge, the Desk and the Glow Lounge. A full edited episode with clips is AED 1,350 (AED 990 opening offer). All prices include 5% VAT.","الحجز بالساعة مع المشغّل يبدأ من 300 درهم في الركن، و400 درهم في الشاشة الخضراء، و450 درهم في المجلس والمكتب وصالة الضوء. والحلقة الكاملة مع المونتاج والمقاطع بـ 1,350 درهم (990 درهم عرض الافتتاح). كل الأسعار شاملة ضريبة القيمة المضافة 5%."],
 fq6:["Where are you, and is there parking?","وين مكانكم، وفيه مواقف؟"],fa6:["28B Street, Al Quoz Industrial Area, Dubai, in the same building as OUDCRAFT. Valet parking at the door is free.","شارع 28B، منطقة القوز الصناعية، دبي، في نفس مبنى OUDCRAFT. وصف السيارات عند الباب مجاني."],
 waFloat:["Chat on WhatsApp","كلّمنا واتساب"],
 ckP:["We use cookies to see which ads bring visitors and to improve this site.","نستخدم ملفات تعريف الارتباط لنعرف أي إعلان جاب الزوار ولتحسين الموقع."],ckYes:["Accept","موافق"],ckNo:["Decline","رفض"],ckMore:["Privacy","الخصوصية"],
@@ -84,12 +85,7 @@ const t=k=>(T[k]||[k,k])[L];
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const lang=o=>o?(L?o.ar:o.en):"";
 
-// remember where a visitor came from (ad campaign, Instagram bio, etc.) so WhatsApp enquiries show it
-let REF="";
-try{const q=new URLSearchParams(location.search);const r=[q.get("utm_source"),q.get("utm_campaign")||q.get("ref")].filter(Boolean).join("-");
-  if(r)sessionStorage.setItem("sard-ref",r.slice(0,40));else if(q.get("fbclid"))sessionStorage.setItem("sard-ref",sessionStorage.getItem("sard-ref")||"meta");else if(q.get("gclid"))sessionStorage.setItem("sard-ref",sessionStorage.getItem("sard-ref")||"google");
-  REF=sessionStorage.getItem("sard-ref")||"";}catch(e){}
-function waLink(text){return C.whatsapp?`https://wa.me/${C.whatsapp}?text=${encodeURIComponent(text+(REF?`\n[ref: ${REF}]`:""))}`:"#contact";}
+const SS=window.SardSite;const waLink=SS.waLink,track=SS.track;
 const WA_TXT={
   hello:["Hi Sard, I'd like to ask about recording at the studio.","هلا سرد، عندي استفسار عن التسجيل في الاستوديو."],
   series:["Hi Sard, I'm interested in The Series package (4 episodes a month).","هلا سرد، مهتم بباقة السلسلة (4 حلقات شهرياً)."],
@@ -117,7 +113,8 @@ $("#lang").addEventListener("click",()=>{const toAr=!L;try{localStorage.setItem(
 
 // pages via #hash so links can be shared
 const PAGES=["home","packages","studio","contact","book"];
-function go(p,push){if(!PAGES.includes(p))p="home";$$(".page").forEach(x=>x.hidden=x.id!=="p-"+p);$$("nav.tabs button").forEach(b=>b.setAttribute("aria-current",b.dataset.go===p?"page":"false"));if(push!==false&&location.hash!=="#"+p)history.pushState(null,"","#"+p);window.scrollTo({top:0});}
+const REAL={packages:"packages/",studio:"studio/",contact:"contact/"};
+function go(p,push){if(REAL[p]){location.replace((AR_PAGE?"/ar/":"/")+REAL[p]);return;}if(!PAGES.includes(p))p="home";$$(".page").forEach(x=>x.hidden=x.id!=="p-"+p);$$("nav.tabs [data-go]").forEach(b=>b.setAttribute("aria-current",b.dataset.go===p?"page":"false"));if(push!==false&&location.hash!=="#"+p)history.pushState(null,"","#"+p);window.scrollTo({top:0});}
 window.addEventListener("popstate",()=>go(location.hash.slice(1)||"home",false));
 document.addEventListener("click",e=>{
   const g=e.target.closest("[data-go]");if(g){e.preventDefault();go(g.dataset.go);}
@@ -201,6 +198,7 @@ async function loadBooking(){
 $("#n2").addEventListener("click",()=>{if(S.start==null)return;show(3);try{const d=JSON.parse(localStorage.getItem("sard-guest")||"{}");if(d.name&&!$("#fName").value)$("#fName").value=d.name;if(d.phone&&!$("#fPhone").value)$("#fPhone").value=d.phone;}catch(e){}$("#fName").focus({preventScroll:true});});
 
 function bookingRef(){const p=n=>String(n).padStart(2,"0");return `SRD-${S.day.slice(5,7)}${S.day.slice(8,10)}-${p(S.start)}00-${Math.random().toString(36).slice(2,4).toUpperCase()}`;}
+function hrsTxt(n){return L?({1:"ساعة",2:"ساعتين",3:"3 ساعات"})[n]||`${n} ساعات`:`${n} hr`;}
 function pkgName(lg){return lg?(S.pkg==="episode"?"حلقة (ساعتين، مونتاج كامل، 5 مقاطع)":`جلسة (${({1:"ساعة واحدة",2:"ساعتان",3:"3 ساعات"})[S.hours]})`):(S.pkg==="episode"?"The Episode (2 hours, full edit, 5 clips)":`The Session (${S.hours} hour${S.hours>1?"s":""})`);}
 function buildMessage(d){
   const l0=L;const lg=L;
@@ -233,11 +231,11 @@ $("#sendReq").addEventListener("click",()=>{
   if(S.start==null||!slotOK(S.day,S.start)){show(2);renderPicker();return;}
   const d={ref:bookingRef(),name,phone,people:$("#fPeople").value,type:$("#fType").value,notes:$("#fNotes").value.trim().slice(0,300)};
   try{localStorage.setItem("sard-guest",JSON.stringify({name,phone}))}catch(e){}
-  const msg=buildMessage(d),url=waLink(msg);
+  const msg=buildMessage(d),url=SS.withRef(waLink(msg));
   // alert the studio (calendar hold + email) — fire-and-forget, never blocks the guest
   if(C.bookingApi&&!$("#fHp").value){try{fetch(C.bookingApi,{method:"POST",mode:"no-cors",keepalive:true,body:JSON.stringify({
     ref:d.ref,name,phone,people:d.people,type:d.type,notes:d.notes,pkg:S.pkg,hours:dur(),space:S.space,spaceName:T["sp_"+S.space][0],
-    start:iso(S.day,S.start),end:iso(S.day,S.start+dur()),total:total(),lang:L?"ar":"en",ref_source:REF||"direct",page:location.href.split("#")[0]})});}catch(e){}}
+    start:iso(S.day,S.start),end:iso(S.day,S.start+dur()),total:total(),lang:L?"ar":"en",ref_source:SS.ref||"direct",page:location.href.split("#")[0]})});}catch(e){}}
   track("lead",{method:"booking_request",package:S.pkg,space:S.space,value:total(),currency:"AED"});
   // mark the slot as taken on this device so it doesn't show as free if they come back
   AV.busy=(AV.busy||[]).concat([{s:iso(S.day,S.start),e:iso(S.day,S.start+dur()),space:S.space}]);
@@ -250,36 +248,13 @@ $("#sendReq").addEventListener("click",()=>{
 
 function total(){if(!S.pkg||!S.space)return 0;return S.pkg==="session"?SPACES[S.space].rate*S.hours:990;}
 function render(){
-  $("#hOut").textContent=`${S.hours} ${t("hrs")}`;
-  $("#sumPkg").textContent=S.pkg?(S.pkg==="session"?`${t("pSession")} · ${S.hours} ${t("hrs")}`:t("pEpisode"))+(S.space?` · ${t("sp_"+S.space)}`:""):"—";
+  $("#hOut").textContent=hrsTxt(S.hours);
+  $("#sumPkg").textContent=S.pkg?(S.pkg==="session"?`${t("pSession")} · ${hrsTxt(S.hours)}`:t("pEpisode"))+(S.space?` · ${t("sp_"+S.space)}`:""):"—";
   $("#sumWhen").textContent=(S.day&&S.start!=null)?`${fmtDay(S.day,{weekday:"short",day:"numeric",month:"short"})} · ${fmtTime(S.day,S.start)} – ${fmtTime(S.day,S.start+dur())}`:"—";
-  $("#sumTotal").textContent=`${t("aed")} ${total().toLocaleString("en-US")}`;
+  $("#sumTotal").textContent=L?`${total().toLocaleString("en-US")} ${t("aed")}`:`${t("aed")} ${total().toLocaleString("en-US")}`;
 }
-// ---------- analytics: Meta Pixel + Google Analytics 4, loaded only after consent ----------
-const HAS_TRACK=!!(C.metaPixel||C.ga4);
-function loadTracking(){
-  if(window.__sardTrack)return;window.__sardTrack=1;
-  if(C.metaPixel){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init",C.metaPixel);fbq("track","PageView");}
-  if(C.ga4){const s=document.createElement("script");s.async=1;s.src="https://www.googletagmanager.com/gtag/js?id="+C.ga4;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag("js",new Date());gtag("config",C.ga4);}
-}
-function track(name,params){params=Object.assign({lang:L?"ar":"en",ref:REF||"direct"},params||{});
-  const fb={lead:"Contact",begin_checkout:"InitiateCheckout",view_item:"ViewContent"}[name];
-  try{if(window.fbq&&fb)fbq("track",fb,params);if(window.gtag)gtag("event",name,params);}catch(e){}}
-window.sardTrack=track;
-function consentUI(){
-  const bar=$("#consent");if(!bar||!HAS_TRACK)return;
-  let c=null;try{c=localStorage.getItem("sard-consent")}catch(e){}
-  if(c==="yes"){loadTracking();return;}if(c==="no")return;
-  bar.hidden=false;
-  $("#ckYes").onclick=()=>{try{localStorage.setItem("sard-consent","yes")}catch(e){}bar.hidden=true;loadTracking();};
-  $("#ckNo").onclick=()=>{try{localStorage.setItem("sard-consent","no")}catch(e){}bar.hidden=true;};
-}
-document.addEventListener("click",e=>{
-  const w=e.target.closest('a[href*="wa.me/"]');if(w)track("lead",{method:"whatsapp",where:w.dataset.wa||w.id||"link"});
-});
-// floating WhatsApp button appears once the visitor scrolls past the hero
-(function(){const f=$("#waFloat");if(!f)return;const onS=()=>f.classList.toggle("show",scrollY>420);addEventListener("scroll",onS,{passive:true});onS();})();
 applyLang();
 go(location.hash.slice(1)||"home",false);
-consentUI();
+try{const q=new URLSearchParams(location.search),qp=q.get("pkg"),qs=q.get("space");
+  if(location.hash==="#book"&&(qp==="session"||qp==="episode")){pick(qp);if(qs&&SPACES[qs]&&!(qp==="episode"&&(qs==="green"||qs==="solo")))pickSpace(qs);}}catch(e){}
 })();

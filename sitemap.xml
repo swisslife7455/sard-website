@@ -6,7 +6,55 @@
   <url><loc>https://sardstudio971.com/ar/</loc><changefreq>weekly</changefreq><priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://sardstudio971.com/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://sardstudio971.com/ar/"/></url>
-  <url><loc>https://sardstudio971.com/terms.html</loc><priority>0.3</priority></url>
-  <url><loc>https://sardstudio971.com/privacy.html</loc><priority>0.3</priority></url>
-  <url><loc>https://sardstudio971.com/refunds.html</loc><priority>0.3</priority></url>
+  <url><loc>https://sardstudio971.com/packages/</loc><changefreq>weekly</changefreq><priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sardstudio971.com/packages/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sardstudio971.com/ar/packages/"/></url>
+  <url><loc>https://sardstudio971.com/ar/packages/</loc><changefreq>weekly</changefreq><priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sardstudio971.com/packages/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sardstudio971.com/ar/packages/"/></url>
+  <url><loc>https://sardstudio971.com/studio/</loc><changefreq>weekly</changefreq><priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sardstudio971.com/studio/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sardstudio971.com/ar/studio/"/></url>
+  <url><loc>https://sardstudio971.com/ar/studio/</loc><changefreq>weekly</changefreq><priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sardstudio971.com/studio/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sardstudio971.com/ar/studio/"/></url>
+  <url><loc>https://sardstudio971.com/contact/</loc><changefreq>weekly</changefreq><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sardstudio971.com/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sardstudio971.com/ar/contact/"/></url>
+  <url><loc>https://sardstudio971.com/ar/contact/</loc><changefreq>weekly</changefreq><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sardstudio971.com/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sardstudio971.com/ar/contact/"/></url>
+  <url><loc>https://sardstudio971.com/studio/majlis/</loc><changefreq>weekly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sardstudio971.com/studio/majlis/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sardstudio971.com/ar/studio/majlis/"/></url>
+  <url><loc>https://sardstudio971.com/ar/studio/majlis/</loc><changefreq>weekly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sardstudio971.com/studio/majlis/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sardstudio971.com/ar/studio/majlis/"/></url>
+  <url><loc>https://sardstudio971.com/studio/desk/</loc><changefreq>weekly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sardstudio971.com/studio/desk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sardstudio971.com/ar/studio/desk/"/></url>
+  <url><loc>https://sardstudio971.com/ar/studio/desk/</loc><changefreq>weekly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sardstudio971.com/studio/desk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sardstudio971.com/ar/studio/desk/"/></url>
+  <url><loc>https://sardstudio971.com/studio/glow/</loc><changefreq>weekly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sardstudio971.com/studio/glow/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sardstudio971.com/ar/studio/glow/"/></url>
+  <url><loc>https://sardstudio971.com/ar/studio/glow/</loc><changefreq>weekly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sardstudio971.com/studio/glow/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sardstudio971.com/ar/studio/glow/"/></url>
+  <url><loc>https://sardstudio971.com/studio/green-screen/</loc><changefreq>weekly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sardstudio971.com/studio/green-screen/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sardstudio971.com/ar/studio/green-screen/"/></url>
+  <url><loc>https://sardstudio971.com/ar/studio/green-screen/</loc><changefreq>weekly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sardstudio971.com/studio/green-screen/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sardstudio971.com/ar/studio/green-screen/"/></url>
+  <url><loc>https://sardstudio971.com/studio/solo/</loc><changefreq>weekly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sardstudio971.com/studio/solo/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sardstudio971.com/ar/studio/solo/"/></url>
+  <url><loc>https://sardstudio971.com/ar/studio/solo/</loc><changefreq>weekly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sardstudio971.com/studio/solo/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sardstudio971.com/ar/studio/solo/"/></url>
+  <url><loc>https://sardstudio971.com/terms.html</loc><priority>0.2</priority></url>
+  <url><loc>https://sardstudio971.com/privacy.html</loc><priority>0.2</priority></url>
+  <url><loc>https://sardstudio971.com/refunds.html</loc><priority>0.2</priority></url>
 </urlset>
